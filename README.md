@@ -2,6 +2,8 @@
 
 ## SignalR JS Client with shimmed jQuery not polluting global namespace
 
+Forked from [DVLP/signalr-no-jquery](https://github.com/DVLP/signalr-no-jquery).
+
 jQuery shim borrowed from [react-native-signalR](https://github.com/olofd/react-native-signalr)
 
 This version of signalR client doesn't add jQuery to `window` object but imports jQueryShim locally to signalR and exports `hubConnection`.
@@ -9,12 +11,12 @@ jQueryShim file contains only bare-minimum of jQuery to make signalR client run.
 
 This package is not for use with ASP.NET Core version of SignalR.
 
-This version currently matches version 2.4.1 of [SignalR/SignalR](https://github.com/SignalR/SignalR) and works together with a hosted Azure SignalR Service.
+This version currently matches version 2.4.2 of [SignalR/SignalR](https://github.com/SignalR/SignalR) and works together with a hosted Azure SignalR Service.
 
 ### Usage
 
 ```
-npm i -D signalr-no-jquery
+npm i -D @san4/signalr-no-jquery
 ```
 
 #### ES6 Loader
@@ -71,15 +73,3 @@ Then you can use the connection as you would have before without $.
         hub.invoke('serverMethod', someArgument);
     });
 ```
-
-#### Update 4/01/2017: accessing global settings like through former $.connection
-
-Note: This is an object holding global settings and it's not the same as connection handle returned by hubConnection
-
-```
-import { connection } from 'signalr-no-jquery';
-```
-
-### Problems
-
-Feel free to create pull requests and raise issues <https://github.com/DVLP/signalr-no-jquery/issues>
